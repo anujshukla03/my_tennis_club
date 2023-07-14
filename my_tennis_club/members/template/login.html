@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .box{
+            border:thin solid black;
+            border-radius: 10px;
+            height: fit-content;
+            width: 250px;
+            background-color: aliceblue;
+            padding: 20px;
+            text-align: center;
+        }
+        .a{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            margin: 30px;
+            padding: 10px;
+        }
+        .b{
+            position: absolute;
+            top: 0px;
+            /* left: 500px; */
+            text-align: center;
+            margin: 30px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: aquamarine;display: flex; justify-content: center; align-items: center;height: 100vh;">
+    <a class="a" href="/signup"><button>SignUp</button></a><br>
+    <h1 class="b" style="text-align:center ;">Acme Support</h1>
+
+    <div class="box">
+        <form method="post">
+            {% csrf_token %}
+          
+            <label for="email_or_username">Email or Username:</label>
+            <input type="text" id="email_or_username" name="email_or_username" required>
+          
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Sign In</button>
+          </form>
+    </div>
+</body>
+
+</html>

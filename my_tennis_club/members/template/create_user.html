@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create User</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        {% include 'head.html'%}
+        <style>
+            body{
+                display: flex
+            }
+        </style>
+    </head>
+    
+    <body style="background-color: aquamarine;color: black;">
+       <div >{% include 'sidenav.html' %}</div>
+        <div class="container" style="margin:4em 0px 0px 20em;">
+            <form method="post" action="{% url 'create_user' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="text" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input class="form-control" type="text" id="phone_number" name="phone_number">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select class="form-control" id="department" name="department">
+                        {% for department in departments %}
+                        <option value="{{ department.id }}">{{ department.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role:</label>
+                    <input class="form-control" type="text" id="role" name="role">
+                </div>
+                <button type="submit" class="btn btn-default">Create User</button>
+            </form>
+        </div>
+    </body>
+
+</html>

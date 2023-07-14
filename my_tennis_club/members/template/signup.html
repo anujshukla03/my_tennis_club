@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp</title>
+        <style>
+            body{
+                background-color: aquamarine;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .box{
+            border:thin solid black;
+            border-radius: 10px;
+            height: fit-content;
+            width: 250px;
+            background-color: aliceblue;
+            padding: 20px;
+            text-align: center;
+        }
+        .box input{
+            margin: 10px;
+
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="box">
+            <h1>SignUp</h1>
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <h2>{{error}}</h2>
+                <label for="username">USERNAME</label>
+                <input type="text" id="username" name="username" placeholder="username">
+                <br>
+                <label for="email">EMAIL</label><br>
+                <input type="text" id="email" name="email" placeholder="email">
+                <br>
+
+                <label for="password">PASSWORD</label>
+                <input type="text" id="password" name="password" placeholder="password">
+                <br>
+
+                <label for="cfm_password">CFM PASSWORD</label>
+                <input type="text" id="cfm_password" name="cfm_password" placeholder="cfm_password"><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+
+</html>

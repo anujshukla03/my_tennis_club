@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create New Ticket</title>
+    </head>
+    {% include 'sidenav.html' %}
+
+    <body style="background-color: aquamarine;color: black;">
+        <div class="container" style="margin:4em 0px 0px 20em;">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+
+                    <input class="form-control" type="email" name="email" value="{{ user.email }}" readonly>
+                </div>
+                <div class="form-group">
+
+                    <input class="form-control" type="text" name="phone_number" value="{{  users.phone_number  }}"
+                        readonly>
+                </div>
+                <button class="btn btn-default" type="submit">Create Ticket</button>
+            </form>
+        </div>
+    </body>
+
+</html>
